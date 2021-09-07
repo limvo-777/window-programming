@@ -66,9 +66,10 @@ BOOL CdrawTextApp::InitInstance()
 	return TRUE;
 }
 
-#pragma data_seg("jedi_area")
+#pragma data_seg("share_area")
 int count = 200; // 전역
 #pragma data_seg()
+#pragma comment(linker, "/section:share_area,RWS")
 
 // 함수호출규약 
 // dll로 활용할 함수에 대한 선언
@@ -86,7 +87,7 @@ void TextOutDLL(CDC * pDC, CPoint point)
 {
 	//static int count = 1;
 	CString string;
-	string.Format(L"(%d, %d) Count : %d", point.x, point.y, count++);
+	string.Format(L"김동민 (%d, %d) Count : %d", point.x, point.y, count++);
 
 	//화면 출력
 	pDC->TextOut(point.x, point.y, string);
