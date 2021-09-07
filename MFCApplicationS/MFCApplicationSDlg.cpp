@@ -65,6 +65,8 @@ BEGIN_MESSAGE_MAP(CMFCApplicationSDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON1, &CMFCApplicationSDlg::OnBnClickedButton1)
+	ON_WM_NCHITTEST()
 END_MESSAGE_MAP()
 
 
@@ -154,3 +156,20 @@ HCURSOR CMFCApplicationSDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CMFCApplicationSDlg::OnBnClickedButton1()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	//MessageBox(_T("Contents"), _("Title"), MB_ICONINFORMATION);
+	AfxMessageBox(_T("이것은 메시지 박스입니다."), MB_RETRYCANCEL);
+}
+
+
+LRESULT CMFCApplicationSDlg::OnNcHitTest(CPoint point)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	UINT nHit = CDialog::OnNcHitTest(point);
+	return (nHit == HTCLIENT ? HTCAPTION : nHit);
+	// nHit 이 클라이언트 부분에 있다면 캡션 동작으로 만들어 이동 가능
+}
