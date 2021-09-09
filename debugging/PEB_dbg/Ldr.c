@@ -2,12 +2,14 @@
 #include <winnt.h>
 #include <windows.h>
 
+// LDR 구조체에서 변경되는 힙 공간 찾기 힘듦
+// Process Heap에서 FEEEFEEE로 변경되는 공간 찾기
 int main(int argc,char** argv)
 {
-    char ** teb_address= NtCurrentTeb();
+    char ** teb_address= NtCurrentTeb(); //TEB 주소
     printf("TEB Address: %x\n", teb_address);
 
-    char ** peb_address = *(teb_address + 0x30/4);
+    char ** peb_address = *(teb_address + 0x30/4); //PEB 주소
     printf("PEB Address: %x\n", peb_address);
     
     //ldr
