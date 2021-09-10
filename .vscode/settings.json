@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "RANSOM~2.C": "cpp"
+        "RANSOM~2.C": "cpp",
+        "fstream": "cpp",
+        "filesystem": "cpp",
+        "ostream": "cpp"
     }
 }

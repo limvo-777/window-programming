@@ -7,9 +7,34 @@
             "label": "gcc build",
             "type": "shell",
             "command": "gcc",
-            "args":["-o", 
+            "args": [
+                "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${fileDirname}\\${fileBasenameNoExtension}.c"]
+                "${fileDirname}\\${fileBasenameNoExtension}.c"
+            ]
+        },
+        {
+            "label": "g++ HookMain.exe build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${fileDirname}\\${fileBasenameNoExtension}.cpp"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "g++ KeyHook.dll build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-shared",
+                "-o",
+                "${fileDirname}\\KeyHook.dll",
+                "${fileDirname}\\${fileBasenameNoExtension}.cpp"
+            ]
         }
     ]
+    
 }
