@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "rc4.h"
 
+//gcc -o targetpptx.exe targetpptx.c rc4.c
 // #define targetfile "target.pptx"
 
 
