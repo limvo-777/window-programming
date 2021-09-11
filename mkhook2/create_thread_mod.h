@@ -35,7 +35,7 @@ int create_thread()
     //MythreadFunction : 함수의 시작주소
     //&Param : 파라미터 주소 
     //0 : 즉시 thread 실행
-    //&Param : thread ID 주소
+    //&ID : thread ID 주소
 
     if(hThread==NULL) //CreatedThread fail
     {

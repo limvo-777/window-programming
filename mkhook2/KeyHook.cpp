@@ -13,15 +13,15 @@ HINSTANCE g_hInstance = NULL;
 HHOOK g_hHook = NULL;
 HWND g_hWnd = NULL;
 
-// DllMain이 반복 호출 됨 (hookmain 실행 시)
+// DllMain이 반복 호출 됨 (hookmain 실행 시) : 진입점
 BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD dwReason, LPVOID lpvReserved)
 {
-    //Process 에 붙었는지 떨어졌는지
+    //dll 프로세스 연결
     switch(dwReason)
     {
         //attach 
         case DLL_PROCESS_ATTACH:
-            g_hInstance =hinstDLL; //핸들을 hInstance로 가져옴dd
+            g_hInstance =hinstDLL; //핸들을 hInstance로 가져옴
             break;
         
         //detach
@@ -52,7 +52,7 @@ extern "C" {
     }
 }
 
-//목표 : 메모장에서 키가 눌리지 않도록 설정 -> notepad.exe
+//목표 : 1.메모장에서 키가 눌리지 않도록 설정 -> notepad.exe 2. 메모장 입력 정보 파일로 저장
 //nCode : 코드가 0보다 작은 경우 CallNextHookEx 함수에 메시지 전달
 //wParam : 키 입력 메시지를 생성한 키의 가상 키코드
 //wParam, lParam을 통해 키보드 입력값을 받아옴
