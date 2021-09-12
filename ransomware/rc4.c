@@ -1,3 +1,8 @@
+// RC4 암호 알고리즘
+// 1단계 : 임의 배열 s, 키 배열 k 초기화
+// 2단계 : 키 배열 k로 임의의 배열 s 값을 섞음 (key scheduling)
+// 3단계 : 배열 s 값을 이용해 키 스트림을 만드는 유사 난수 생성
+// 4단계 : 암호문 생성
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
