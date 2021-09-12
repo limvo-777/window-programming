@@ -7,7 +7,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define N 256
+#define N 256 // 임의 배열 s 크기
 
 void swap(unsigned char *a, unsigned char *b){
     int tmp = *a;
@@ -17,6 +17,7 @@ void swap(unsigned char *a, unsigned char *b){
 
 int KSA(char *key, unsigned char *S) //key scheduling
 {
+    //1단계
     //S배열 초기화
     for(int i=0; i<N; i++){
         S[i] = i;
@@ -25,6 +26,7 @@ int KSA(char *key, unsigned char *S) //key scheduling
     int len = strlen(key);
     int j =0;
 
+    //2단계
     for(int i=0;i<N;i++){
         // j 계산, key = "test"
         j = (j + S[i] + key[i % len]) % N;
@@ -42,6 +44,7 @@ int PRGA(unsigned char * S, char * plaintext, int size, unsigned char * cipherte
     int i = 0;
     int j = 0;
 
+    //3단계
     // 0 to length of plaintext
     for(int n=0;n<size;n++) //plaintext의 길이 (n)
     {
@@ -52,6 +55,7 @@ int PRGA(unsigned char * S, char * plaintext, int size, unsigned char * cipherte
         int t = (S[i]+S[j]) % N;
         int key_str = S[t];
 
+        //4단계 : xor 연산으로 암호문 계산
         ciphertext[n] = key_str ^ plaintext[n];
     }
 
