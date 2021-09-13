@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "rc4.h"
 
+//gcc -o targettxt.exe targettxt.c rc4.c
 // #define targetfile "target.txt"
 
 
@@ -10,11 +11,12 @@ int main(int argc,char ** argv)
 {
     char* targetfile =  "target.txt";
     int ans = 0;
-    printf("------ encrypt (1) , decrypt(2) : ");
+    printf("Target : target.txt\n");
+    printf("\n- encrypt (1) , decrypt(2) : ");
     scanf("%d", &ans);
 
     if (ans==2){
-        targetfile = "encrypted.zxc";
+        targetfile = "txt_encrypted.zxc";
     }else{
         targetfile = "target.txt";
     }
@@ -46,17 +48,18 @@ int main(int argc,char ** argv)
     //encrypt & decrypt
     RC4(key, plaintext, lSize, ciphertext);
     if (ans==2){    
-        printf("*** DECRYPT ***\n");
+        printf("\n*** DECRYPT ***\n");
+        printf("txt_encrypted.zxc => decrypted.txt\n");
     }else{
-        printf("*** ENCRYPT ***\n");
+        printf("\n*** ENCRYPT ***\n");
+        printf("target.txt => txt_encrypted.zxc\n");
     }
-    printf("%d\n",strlen(plaintext));
    
-    printf("original : ");
-    for(int i=0, len=strlen(plaintext); i<len; i++ ) 
-        printf("%02hhx",ciphertext[i]); 
-    printf("\n");
-    printf("changed : %s\n",ciphertext);
+    // printf("original : ");
+    // for(int i=0, len=strlen(plaintext); i<len; i++ ) 
+    //     printf("%02hhx",ciphertext[i]); 
+    // printf("\n");
+    // printf("changed : %s\n",ciphertext);
 
     // fileopen
     file = fopen(targetfile,"wb");
@@ -68,10 +71,10 @@ int main(int argc,char ** argv)
     if (ans==2){
         rename(targetfile,"decrypted.txt");
     }else{
-        rename(targetfile,"encrypted.zxc");
+        rename(targetfile,"txt_encrypted.zxc");
     }
 
-    rename(targetfile,"encrypted.zxc");
+    rename(targetfile,"txt_encrypted.zxc");
   
 
     return 0;
