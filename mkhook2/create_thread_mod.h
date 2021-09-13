@@ -2,9 +2,7 @@
 #define CREATE_THREAD
 
 DWORD WINAPI MyThreadFunction(LPVOID lpParam)
-{
-    // printf("Parameter: %u\n",*(DWORD *)lpParam);
-    
+{   
     //new thread start
     while(1)
     {
@@ -52,3 +50,18 @@ int create_thread()
     return 0;
 }
 #endif
+
+// 현재 디렉터리 가져오기
+// #include "direct.h"
+// char * curDirectory(){
+//     static int num = 0;
+//     static char curDir[1000];
+//     if(!num){
+//         _getcwd(curDir,1000);
+//         printf( "%s", curDir);
+//     }
+//     static char * cur = curDir;
+//     num++;
+
+//     return cur;
+// }

